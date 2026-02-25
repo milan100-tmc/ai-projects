@@ -32,3 +32,14 @@ Upload a report, get a pre-meeting brief in 60 seconds. Auto-generates key takea
 
 ## About
 MSc Business Intelligence | AI Developer | Building intelligent tools for business data
+
+---
+
+## 📈 Sales Intelligence Dashboard
+Interactive sales dashboard with AI analyst that automatically identifies patterns, risks and opportunities.
+
+**Live:** https://ai-projects-gfptpxkbcfhkrr2fanhumb.streamlit.app/
+
+**Tech:** Python, Groq API, Plotly, Pandas, Streamlit
+
+**Problem it solves:** Sales directors spend hours in review meetings trying to understand what the numbers mean. This tells them in seconds.
