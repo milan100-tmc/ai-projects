@@ -1,3 +1,6 @@
+langchain-community
+langchain-text-splitters
 groq
 streamlit
 python-dotenv
+pypdf
