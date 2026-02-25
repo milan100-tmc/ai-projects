@@ -7,3 +7,5 @@ pypdf
 faiss-cpu
 scikit-learn
 openai
+plotly
+pandas
