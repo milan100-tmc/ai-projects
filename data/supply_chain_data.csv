@@ -1,0 +1,301 @@
+month,supplier,category,delivery_rate,lead_time_days,order_value,stockout_incident,quality_score,on_time
+2024-01,SupplierA,Raw Materials,90.7,17,37939.73,0,92.7,1
+2024-01,SupplierA,Packaging,88.6,13,25666.2,0,85.2,0
+2024-01,SupplierA,Components,88.4,5,5926.3,0,97.8,0
+2024-01,SupplierA,Chemicals,95.3,8,5035.04,0,100.0,1
+2024-01,SupplierA,Equipment,93.2,14,6037.81,0,93.7,1
+2024-01,SupplierB,Raw Materials,91.0,18,15474.71,0,82.8,1
+2024-01,SupplierB,Packaging,93.2,14,28140.55,0,95.0,1
+2024-01,SupplierB,Components,87.5,9,12673.59,0,78.8,0
+2024-01,SupplierB,Chemicals,96.5,16,41377.88,0,92.6,1
+2024-01,SupplierB,Equipment,88.0,17,35746.86,0,90.2,0
+2024-01,SupplierC,Raw Materials,95.3,5,45919.42,0,90.5,1
+2024-01,SupplierC,Packaging,93.6,4,24132.01,0,87.8,1
+2024-01,SupplierC,Components,92.7,20,39880.98,0,100.0,1
+2024-01,SupplierC,Chemicals,95.9,16,37727.24,0,92.5,1
+2024-01,SupplierC,Equipment,92.7,10,43004.02,0,97.7,1
+2024-01,SupplierD,Raw Materials,92.4,15,11341.59,0,98.4,1
+2024-01,SupplierD,Packaging,87.7,9,24053.07,0,85.6,0
+2024-01,SupplierD,Components,89.9,13,13947.91,0,94.2,0
+2024-01,SupplierD,Chemicals,94.9,7,46683.54,0,97.9,1
+2024-01,SupplierD,Equipment,96.1,11,33048.42,0,92.8,1
+2024-01,SupplierE,Raw Materials,70.6,7,37832.28,1,73.4,0
+2024-01,SupplierE,Packaging,78.9,3,22231.71,0,88.3,0
+2024-01,SupplierE,Components,78.5,7,30257.47,0,83.9,0
+2024-01,SupplierE,Chemicals,74.9,11,36979.83,1,67.2,0
+2024-01,SupplierE,Equipment,74.4,9,26391.66,1,75.7,0
+2024-02,SupplierA,Raw Materials,94.0,7,16218.15,0,92.2,1
+2024-02,SupplierA,Packaging,94.6,6,47428.41,0,96.5,1
+2024-02,SupplierA,Components,93.9,4,33095.93,0,89.9,1
+2024-02,SupplierA,Chemicals,88.1,14,13395.65,0,95.9,0
+2024-02,SupplierA,Equipment,92.4,9,45807.28,0,87.8,1
+2024-02,SupplierB,Raw Materials,93.5,15,43732.88,0,83.6,1
+2024-02,SupplierB,Packaging,92.1,11,26817.35,0,96.0,1
+2024-02,SupplierB,Components,89.7,17,12573.1,0,84.1,0
+2024-02,SupplierB,Chemicals,92.6,19,7920.15,0,87.7,1
+2024-02,SupplierB,Equipment,89.5,9,27376.18,0,85.5,0
+2024-02,SupplierC,Raw Materials,89.8,19,17005.15,0,99.4,0
+2024-02,SupplierC,Packaging,91.1,7,20528.21,0,93.8,1
+2024-02,SupplierC,Components,93.8,14,25150.24,0,94.9,1
+2024-02,SupplierC,Chemicals,92.9,13,21634.45,0,87.8,1
+2024-02,SupplierC,Equipment,95.0,7,33453.76,0,97.7,1
+2024-02,SupplierD,Raw Materials,92.4,18,40925.53,0,85.4,1
+2024-02,SupplierD,Packaging,92.1,18,6834.88,0,93.9,1
+2024-02,SupplierD,Components,93.8,5,41427.55,0,90.7,1
+2024-02,SupplierD,Chemicals,88.0,11,36092.2,0,85.7,0
+2024-02,SupplierD,Equipment,96.4,3,35406.06,0,100.0,1
+2024-02,SupplierE,Raw Materials,72.1,12,16607.37,1,75.3,0
+2024-02,SupplierE,Packaging,78.2,19,15883.35,0,70.0,0
+2024-02,SupplierE,Components,79.0,7,44718.64,0,72.7,0
+2024-02,SupplierE,Chemicals,72.8,18,43099.75,1,79.9,0
+2024-02,SupplierE,Equipment,74.0,3,33891.42,1,65.7,0
+2024-03,SupplierA,Raw Materials,88.6,8,35104.47,0,90.2,0
+2024-03,SupplierA,Packaging,90.7,5,48814.87,0,86.4,1
+2024-03,SupplierA,Components,90.1,4,36135.28,0,93.1,1
+2024-03,SupplierA,Chemicals,89.2,3,5813.39,0,89.1,0
+2024-03,SupplierA,Equipment,88.8,10,43215.05,0,91.9,0
+2024-03,SupplierB,Raw Materials,92.7,14,27896.63,0,95.4,1
+2024-03,SupplierB,Packaging,89.5,8,49050.18,0,89.2,0
+2024-03,SupplierB,Components,96.1,4,20753.53,0,99.0,1
+2024-03,SupplierB,Chemicals,93.7,3,13785.93,0,98.1,1
+2024-03,SupplierB,Equipment,89.8,5,39584.93,0,80.7,0
+2024-03,SupplierC,Raw Materials,96.9,16,46168.9,0,94.3,1
+2024-03,SupplierC,Packaging,87.2,19,29874.42,0,88.6,0
+2024-03,SupplierC,Components,96.8,3,19261.49,0,90.2,1
+2024-03,SupplierC,Chemicals,92.6,5,30652.75,0,84.5,1
+2024-03,SupplierC,Equipment,93.2,4,16437.36,0,89.1,1
+2024-03,SupplierD,Raw Materials,90.2,10,36365.71,0,94.3,1
+2024-03,SupplierD,Packaging,90.6,12,41421.25,0,96.8,1
+2024-03,SupplierD,Components,95.7,15,8671.74,0,85.8,1
+2024-03,SupplierD,Chemicals,93.3,3,8192.34,0,91.2,1
+2024-03,SupplierD,Equipment,87.5,17,21901.23,0,79.4,0
+2024-03,SupplierE,Raw Materials,75.8,19,6680.67,0,82.2,0
+2024-03,SupplierE,Packaging,73.6,7,28500.95,1,79.0,0
+2024-03,SupplierE,Components,72.2,7,25576.93,1,79.0,0
+2024-03,SupplierE,Chemicals,71.9,17,36478.05,1,64.7,0
+2024-03,SupplierE,Equipment,71.3,20,28233.52,1,67.8,0
+2024-04,SupplierA,Raw Materials,95.0,7,13295.02,0,86.6,1
+2024-04,SupplierA,Packaging,91.3,14,23402.88,0,84.7,1
+2024-04,SupplierA,Components,88.6,4,15790.43,0,80.4,0
+2024-04,SupplierA,Chemicals,88.8,15,17597.03,0,97.9,0
+2024-04,SupplierA,Equipment,94.4,7,32527.43,0,92.8,1
+2024-04,SupplierB,Raw Materials,89.5,18,12139.09,0,81.9,0
+2024-04,SupplierB,Packaging,90.4,7,9237.06,0,86.6,1
+2024-04,SupplierB,Components,96.8,7,26337.82,0,88.8,1
+2024-04,SupplierB,Chemicals,91.9,9,20583.69,0,91.2,1
+2024-04,SupplierB,Equipment,93.5,12,47711.56,0,100.0,1
+2024-04,SupplierC,Raw Materials,62.6,20,33163.7,1,62.7,0
+2024-04,SupplierC,Packaging,68.6,15,35778.37,1,70.9,0
+2024-04,SupplierC,Components,69.4,12,6193.01,1,71.2,0
+2024-04,SupplierC,Chemicals,69.4,22,22467.65,1,72.3,0
+2024-04,SupplierC,Equipment,64.6,21,47365.92,1,62.3,0
+2024-04,SupplierD,Raw Materials,96.6,12,14300.8,0,92.1,1
+2024-04,SupplierD,Packaging,89.1,16,5819.98,0,81.0,0
+2024-04,SupplierD,Components,93.8,19,34507.52,0,91.5,1
+2024-04,SupplierD,Chemicals,93.8,4,16731.25,0,93.7,1
+2024-04,SupplierD,Equipment,93.9,20,33302.43,0,100.0,1
+2024-04,SupplierE,Raw Materials,77.4,6,12984.78,0,82.4,0
+2024-04,SupplierE,Packaging,78.1,19,37924.15,0,70.6,0
+2024-04,SupplierE,Components,72.5,7,15736.86,1,76.1,0
+2024-04,SupplierE,Chemicals,77.4,5,9640.57,0,85.5,0
+2024-04,SupplierE,Equipment,75.1,18,22532.81,0,71.0,0
+2024-05,SupplierA,Raw Materials,88.0,6,5487.69,0,96.1,0
+2024-05,SupplierA,Packaging,87.9,9,48056.04,0,91.4,0
+2024-05,SupplierA,Components,91.8,17,8747.8,0,83.7,1
+2024-05,SupplierA,Chemicals,93.0,6,47578.75,0,98.7,1
+2024-05,SupplierA,Equipment,88.1,12,48841.17,0,98.1,0
+2024-05,SupplierB,Raw Materials,87.6,5,44946.69,0,84.6,0
+2024-05,SupplierB,Packaging,88.2,14,35961.35,0,94.9,0
+2024-05,SupplierB,Components,95.7,8,8784.81,0,99.7,1
+2024-05,SupplierB,Chemicals,87.7,20,45135.36,0,80.7,0
+2024-05,SupplierB,Equipment,92.1,8,49398.78,0,89.6,1
+2024-05,SupplierC,Raw Materials,63.7,27,47626.19,1,73.4,0
+2024-05,SupplierC,Packaging,67.5,16,36868.15,1,67.2,0
+2024-05,SupplierC,Components,63.8,17,24089.99,1,71.9,0
+2024-05,SupplierC,Chemicals,61.1,13,16415.7,1,60.0,0
+2024-05,SupplierC,Equipment,65.7,18,10288.68,1,68.7,0
+2024-05,SupplierD,Raw Materials,94.5,15,15687.79,0,92.5,1
+2024-05,SupplierD,Packaging,91.8,3,15061.81,0,100.0,1
+2024-05,SupplierD,Components,87.1,15,6942.2,0,94.9,0
+2024-05,SupplierD,Chemicals,92.3,13,46360.21,0,87.3,1
+2024-05,SupplierD,Equipment,94.0,20,12479.69,0,88.3,1
+2024-05,SupplierE,Raw Materials,72.9,3,33240.11,1,74.6,0
+2024-05,SupplierE,Packaging,79.0,13,17643.34,0,88.0,0
+2024-05,SupplierE,Components,78.9,14,9804.02,0,75.6,0
+2024-05,SupplierE,Chemicals,71.7,6,25866.43,1,68.8,0
+2024-05,SupplierE,Equipment,75.8,7,48847.77,0,85.6,0
+2024-06,SupplierA,Raw Materials,94.0,19,17589.36,0,92.2,1
+2024-06,SupplierA,Packaging,93.0,18,12317.76,0,100.0,1
+2024-06,SupplierA,Components,95.2,20,23748.76,0,96.8,1
+2024-06,SupplierA,Chemicals,96.2,12,46972.78,0,100.0,1
+2024-06,SupplierA,Equipment,87.5,3,39992.1,0,87.1,0
+2024-06,SupplierB,Raw Materials,96.9,13,31735.88,0,94.5,1
+2024-06,SupplierB,Packaging,96.7,19,42724.79,0,96.1,1
+2024-06,SupplierB,Components,91.1,3,5615.24,0,82.7,1
+2024-06,SupplierB,Chemicals,93.9,7,49987.3,0,100.0,1
+2024-06,SupplierB,Equipment,92.6,7,37675.44,0,97.7,1
+2024-06,SupplierC,Raw Materials,63.8,24,14227.04,1,60.0,0
+2024-06,SupplierC,Packaging,62.7,14,15288.93,1,66.2,0
+2024-06,SupplierC,Components,66.2,18,5998.31,1,66.1,0
+2024-06,SupplierC,Chemicals,64.8,13,28407.36,1,71.8,0
+2024-06,SupplierC,Equipment,65.5,15,8978.37,1,71.4,0
+2024-06,SupplierD,Raw Materials,92.9,17,23924.11,0,98.6,1
+2024-06,SupplierD,Packaging,93.4,13,14583.39,0,86.1,1
+2024-06,SupplierD,Components,87.1,8,32363.95,0,89.9,0
+2024-06,SupplierD,Chemicals,92.5,4,20671.5,0,92.8,1
+2024-06,SupplierD,Equipment,94.8,12,43806.37,0,100.0,1
+2024-06,SupplierE,Raw Materials,71.5,19,27145.23,1,66.6,0
+2024-06,SupplierE,Packaging,74.6,4,32936.26,1,71.5,0
+2024-06,SupplierE,Components,72.1,13,15806.55,1,63.6,0
+2024-06,SupplierE,Chemicals,71.3,18,11835.62,1,64.1,0
+2024-06,SupplierE,Equipment,76.4,10,36342.57,0,74.6,0
+2024-07,SupplierA,Raw Materials,95.7,20,32087.09,0,90.2,1
+2024-07,SupplierA,Packaging,95.2,20,17536.57,0,88.8,1
+2024-07,SupplierA,Components,87.9,3,29049.06,0,85.0,0
+2024-07,SupplierA,Chemicals,95.9,19,27653.78,0,99.8,1
+2024-07,SupplierA,Equipment,87.4,17,33255.52,0,79.0,0
+2024-07,SupplierB,Raw Materials,95.7,18,7748.51,0,91.3,1
+2024-07,SupplierB,Packaging,95.1,19,31877.51,0,100.0,1
+2024-07,SupplierB,Components,92.4,16,32821.46,0,89.7,1
+2024-07,SupplierB,Chemicals,91.6,15,7805.36,0,84.6,1
+2024-07,SupplierB,Equipment,88.3,5,45284.31,0,88.6,0
+2024-07,SupplierC,Raw Materials,92.3,15,44024.67,0,89.4,1
+2024-07,SupplierC,Packaging,91.0,7,13202.77,0,92.3,1
+2024-07,SupplierC,Components,95.4,14,15494.74,0,92.3,1
+2024-07,SupplierC,Chemicals,91.7,12,40512.71,0,91.7,1
+2024-07,SupplierC,Equipment,87.9,17,38157.01,0,89.0,0
+2024-07,SupplierD,Raw Materials,92.9,14,10741.11,0,88.5,1
+2024-07,SupplierD,Packaging,90.6,4,15995.89,0,90.6,1
+2024-07,SupplierD,Components,90.3,3,5339.05,0,84.8,1
+2024-07,SupplierD,Chemicals,90.7,18,12230.66,0,84.4,1
+2024-07,SupplierD,Equipment,89.9,11,8610.52,0,90.3,0
+2024-07,SupplierE,Raw Materials,74.1,6,49876.5,1,82.0,0
+2024-07,SupplierE,Packaging,75.8,13,43947.82,0,82.1,0
+2024-07,SupplierE,Components,72.6,8,35088.94,1,81.2,0
+2024-07,SupplierE,Chemicals,75.6,10,26447.88,0,82.3,0
+2024-07,SupplierE,Equipment,72.1,6,24144.64,1,72.2,0
+2024-08,SupplierA,Raw Materials,89.4,17,36825.35,0,94.8,0
+2024-08,SupplierA,Packaging,87.9,13,46940.65,0,84.3,0
+2024-08,SupplierA,Components,92.9,8,20147.19,0,85.6,1
+2024-08,SupplierA,Chemicals,87.6,14,14077.87,0,91.3,0
+2024-08,SupplierA,Equipment,87.9,7,5121.99,0,80.2,0
+2024-08,SupplierB,Raw Materials,91.7,8,23532.84,0,88.7,1
+2024-08,SupplierB,Packaging,96.3,14,23383.32,0,100.0,1
+2024-08,SupplierB,Components,96.9,4,13155.49,0,88.2,1
+2024-08,SupplierB,Chemicals,94.4,10,42257.34,0,99.4,1
+2024-08,SupplierB,Equipment,95.0,5,12391.96,0,100.0,1
+2024-08,SupplierC,Raw Materials,93.7,6,19228.85,0,95.4,1
+2024-08,SupplierC,Packaging,93.8,10,24761.07,0,91.4,1
+2024-08,SupplierC,Components,91.6,8,29290.15,0,90.4,1
+2024-08,SupplierC,Chemicals,92.8,19,45480.86,0,90.5,1
+2024-08,SupplierC,Equipment,92.4,10,15306.14,0,93.3,1
+2024-08,SupplierD,Raw Materials,91.3,5,33246.86,0,88.0,1
+2024-08,SupplierD,Packaging,88.4,17,44538.31,0,88.3,0
+2024-08,SupplierD,Components,94.4,6,49896.17,0,99.5,1
+2024-08,SupplierD,Chemicals,94.1,3,6508.96,0,95.5,1
+2024-08,SupplierD,Equipment,94.6,12,20393.68,0,100.0,1
+2024-08,SupplierE,Raw Materials,71.1,6,25565.01,1,73.2,0
+2024-08,SupplierE,Packaging,75.0,10,11746.28,0,69.6,0
+2024-08,SupplierE,Components,77.2,4,5549.14,0,79.2,0
+2024-08,SupplierE,Chemicals,75.7,13,31956.32,0,82.2,0
+2024-08,SupplierE,Equipment,79.6,10,31252.63,0,77.6,0
+2024-09,SupplierA,Raw Materials,91.6,16,32672.76,0,99.9,1
+2024-09,SupplierA,Packaging,88.4,20,32515.44,0,78.8,0
+2024-09,SupplierA,Components,95.7,14,9599.57,0,100.0,1
+2024-09,SupplierA,Chemicals,94.9,7,36825.74,0,88.0,1
+2024-09,SupplierA,Equipment,92.8,11,24085.88,0,97.5,1
+2024-09,SupplierB,Raw Materials,96.3,13,25287.77,0,88.6,1
+2024-09,SupplierB,Packaging,96.8,16,13384.44,0,100.0,1
+2024-09,SupplierB,Components,90.3,10,32355.25,0,87.9,1
+2024-09,SupplierB,Chemicals,94.4,12,41128.41,0,84.5,1
+2024-09,SupplierB,Equipment,90.3,13,46533.21,0,89.6,1
+2024-09,SupplierC,Raw Materials,91.8,19,31418.07,0,82.5,1
+2024-09,SupplierC,Packaging,96.1,9,12448.1,0,86.8,1
+2024-09,SupplierC,Components,90.1,13,33451.89,0,80.4,1
+2024-09,SupplierC,Chemicals,93.6,9,48899.36,0,92.8,1
+2024-09,SupplierC,Equipment,92.6,10,27598.78,0,94.5,1
+2024-09,SupplierD,Raw Materials,87.7,19,6644.74,0,87.1,0
+2024-09,SupplierD,Packaging,92.6,20,18232.01,0,96.9,1
+2024-09,SupplierD,Components,92.3,19,23034.34,0,93.5,1
+2024-09,SupplierD,Chemicals,88.6,3,20046.33,0,80.1,0
+2024-09,SupplierD,Equipment,94.5,12,17183.51,0,97.4,1
+2024-09,SupplierE,Raw Materials,74.1,20,44014.72,1,72.2,0
+2024-09,SupplierE,Packaging,75.5,5,15398.37,0,79.0,0
+2024-09,SupplierE,Components,70.2,17,30624.96,1,77.9,0
+2024-09,SupplierE,Chemicals,75.6,10,9474.86,0,70.4,0
+2024-09,SupplierE,Equipment,77.2,16,42359.89,0,75.2,0
+2024-10,SupplierA,Raw Materials,93.7,16,18191.65,0,100.0,1
+2024-10,SupplierA,Packaging,87.1,9,38115.71,0,94.1,0
+2024-10,SupplierA,Components,88.2,6,33931.65,0,92.3,0
+2024-10,SupplierA,Chemicals,96.1,7,20381.78,0,91.3,1
+2024-10,SupplierA,Equipment,90.8,14,42379.45,0,87.7,1
+2024-10,SupplierB,Raw Materials,94.7,11,24625.69,0,90.6,1
+2024-10,SupplierB,Packaging,96.5,14,11305.09,0,100.0,1
+2024-10,SupplierB,Components,91.9,16,26197.95,0,85.5,1
+2024-10,SupplierB,Chemicals,91.8,19,17090.48,0,92.7,1
+2024-10,SupplierB,Equipment,93.3,9,14811.04,0,96.2,1
+2024-10,SupplierC,Raw Materials,91.2,15,36104.98,0,94.9,1
+2024-10,SupplierC,Packaging,95.2,12,30943.24,0,90.7,1
+2024-10,SupplierC,Components,92.5,8,42338.38,0,86.7,1
+2024-10,SupplierC,Chemicals,87.1,8,37948.31,0,82.1,0
+2024-10,SupplierC,Equipment,93.3,9,30798.25,0,100.0,1
+2024-10,SupplierD,Raw Materials,91.0,16,7113.47,0,84.4,1
+2024-10,SupplierD,Packaging,94.4,6,39694.37,0,85.7,1
+2024-10,SupplierD,Components,95.4,13,21005.27,0,99.8,1
+2024-10,SupplierD,Chemicals,90.0,5,47718.81,0,87.9,0
+2024-10,SupplierD,Equipment,96.5,7,26768.97,0,91.9,1
+2024-10,SupplierE,Raw Materials,75.4,5,42868.83,0,82.3,0
+2024-10,SupplierE,Packaging,79.6,13,20040.98,0,85.0,0
+2024-10,SupplierE,Components,71.1,11,20819.31,1,69.3,0
+2024-10,SupplierE,Chemicals,77.0,10,24567.23,0,72.0,0
+2024-10,SupplierE,Equipment,78.2,7,5105.27,0,87.5,0
+2024-11,SupplierA,Raw Materials,87.1,14,21243.83,0,78.9,0
+2024-11,SupplierA,Packaging,96.2,19,47760.68,0,95.1,1
+2024-11,SupplierA,Components,88.9,18,44282.56,0,93.5,0
+2024-11,SupplierA,Chemicals,95.1,7,36152.45,0,100.0,1
+2024-11,SupplierA,Equipment,89.5,14,14954.42,0,99.3,0
+2024-11,SupplierB,Raw Materials,96.4,17,6987.44,0,98.2,1
+2024-11,SupplierB,Packaging,97.0,9,6527.57,0,100.0,1
+2024-11,SupplierB,Components,90.0,18,10187.69,0,88.4,0
+2024-11,SupplierB,Chemicals,95.0,9,25481.47,0,95.4,1
+2024-11,SupplierB,Equipment,93.4,16,31832.14,0,88.0,1
+2024-11,SupplierC,Raw Materials,88.2,4,44824.93,0,88.8,0
+2024-11,SupplierC,Packaging,91.4,14,30759.25,0,97.5,1
+2024-11,SupplierC,Components,92.4,15,33165.11,0,100.0,1
+2024-11,SupplierC,Chemicals,93.2,4,6098.04,0,100.0,1
+2024-11,SupplierC,Equipment,87.2,15,28802.17,0,96.0,0
+2024-11,SupplierD,Raw Materials,95.0,9,5426.84,0,86.0,1
+2024-11,SupplierD,Packaging,87.9,14,33237.75,0,95.4,0
+2024-11,SupplierD,Components,96.8,12,9126.47,0,93.6,1
+2024-11,SupplierD,Chemicals,92.2,3,15744.97,0,84.4,1
+2024-11,SupplierD,Equipment,90.5,20,18333.87,0,85.2,1
+2024-11,SupplierE,Raw Materials,70.4,3,45965.26,1,61.3,0
+2024-11,SupplierE,Packaging,71.1,6,14821.42,1,80.1,0
+2024-11,SupplierE,Components,77.9,13,31484.94,0,87.5,0
+2024-11,SupplierE,Chemicals,78.8,13,45667.58,0,88.6,0
+2024-11,SupplierE,Equipment,77.4,6,15425.23,0,86.3,0
+2024-12,SupplierA,Raw Materials,93.5,15,10415.24,0,84.4,1
+2024-12,SupplierA,Packaging,90.8,11,13389.72,0,96.4,1
+2024-12,SupplierA,Components,90.5,7,33340.01,0,84.8,1
+2024-12,SupplierA,Chemicals,92.2,19,12825.29,0,90.1,1
+2024-12,SupplierA,Equipment,94.6,19,11925.32,0,100.0,1
+2024-12,SupplierB,Raw Materials,89.2,17,6568.93,0,97.1,0
+2024-12,SupplierB,Packaging,95.6,13,44485.74,0,90.9,1
+2024-12,SupplierB,Components,88.3,11,6996.95,0,95.3,0
+2024-12,SupplierB,Chemicals,87.4,17,34485.89,0,88.4,0
+2024-12,SupplierB,Equipment,87.9,17,5228.7,0,91.8,0
+2024-12,SupplierC,Raw Materials,87.5,20,8647.08,0,81.9,0
+2024-12,SupplierC,Packaging,93.8,7,49616.39,0,85.1,1
+2024-12,SupplierC,Components,95.8,5,20651.41,0,99.4,1
+2024-12,SupplierC,Chemicals,92.7,15,38025.95,0,93.1,1
+2024-12,SupplierC,Equipment,95.7,3,12080.33,0,88.9,1
+2024-12,SupplierD,Raw Materials,90.3,15,36386.22,0,93.9,1
+2024-12,SupplierD,Packaging,93.2,8,13514.97,0,100.0,1
+2024-12,SupplierD,Components,96.6,12,10799.14,0,93.3,1
+2024-12,SupplierD,Chemicals,94.4,20,41808.52,0,100.0,1
+2024-12,SupplierD,Equipment,92.1,9,13690.98,0,83.8,1
+2024-12,SupplierE,Raw Materials,73.3,11,33431.61,1,68.5,0
+2024-12,SupplierE,Packaging,76.3,15,40093.04,0,68.5,0
+2024-12,SupplierE,Components,77.6,12,24450.84,0,84.4,0
+2024-12,SupplierE,Chemicals,73.9,17,46941.26,1,66.0,0
+2024-12,SupplierE,Equipment,79.4,6,8052.67,0,75.4,0
