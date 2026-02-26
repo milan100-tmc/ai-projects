@@ -2,6 +2,8 @@ import streamlit as st
 from groq import Groq
 from dotenv import load_dotenv
 import os
+import json
+import datetime
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -12,28 +14,62 @@ def ask(prompt, system="You are an expert recruiter and career coach. Be specifi
         messages=[{"role": "system", "content": system}, {"role": "user", "content": prompt}]
     ).choices[0].message.content
 
+# Load/save tracker
+TRACKER_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data/applications.json")
+
+def load_applications():
+    if os.path.exists(TRACKER_FILE):
+        with open(TRACKER_FILE, 'r') as f:
+            return json.load(f)
+    return []
+
+def save_application(app):
+    apps = load_applications()
+    apps.append(app)
+    os.makedirs(os.path.dirname(TRACKER_FILE), exist_ok=True)
+    with open(TRACKER_FILE, 'w') as f:
+        json.dump(apps, f, indent=2)
+
+def update_application(index, updates):
+    apps = load_applications()
+    apps[index].update(updates)
+    with open(TRACKER_FILE, 'w') as f:
+        json.dump(apps, f, indent=2)
+
 st.set_page_config(page_title="Job Application Assistant", page_icon="🎯", layout="wide")
 
-st.title("🎯 Job Application Assistant")
-st.caption("Paste your CV and a job description. Get everything you need to apply in 60 seconds.")
+# Tabs
+tab_main, tab_tracker = st.tabs(["🎯 Application Assistant", "📋 Application Tracker"])
 
-col1, col2 = st.columns(2)
-with col1:
-    st.subheader("Your CV")
-    cv_text = st.text_area("Paste your CV here", height=400, placeholder="Paste your full CV text...")
-with col2:
-    st.subheader("Job Description")
-    jd_text = st.text_area("Paste the job description here", height=400, placeholder="Paste the full job description...")
+with tab_main:
+    st.title("🎯 Job Application Assistant")
+    st.caption("Paste your CV and a job description. Get everything you need to apply in 60 seconds.")
 
-st.divider()
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("Your CV")
+        cv_text = st.text_area("Paste your CV here", height=400, placeholder="Paste your full CV text...")
+    with col2:
+        st.subheader("Job Description")
+        jd_text = st.text_area("Paste the job description here", height=400, placeholder="Paste the full job description...")
 
-if st.button("🚀 Generate Full Application Package", type="primary"):
-    if not cv_text or not jd_text:
-        st.error("Please paste both your CV and the job description.")
-    else:
-        # Run all 5 analyses
-        with st.spinner("Analysing match..."):
-            analysis = ask(f"""Analyse this CV against this job description.
+    # Company info for tracking
+    col3, col4, col5 = st.columns(3)
+    with col3:
+        company_name = st.text_input("Company Name", placeholder="e.g. Product Madness")
+    with col4:
+        job_title = st.text_input("Job Title", placeholder="e.g. Data Analyst")
+    with col5:
+        job_url = st.text_input("Job URL", placeholder="Paste the job link")
+
+    st.divider()
+
+    if st.button("🚀 Generate Full Application Package", type="primary"):
+        if not cv_text or not jd_text:
+            st.error("Please paste both your CV and the job description.")
+        else:
+            with st.spinner("Analysing match..."):
+                analysis = ask(f"""Analyse this CV against this job description.
 
 CV: {cv_text}
 
@@ -45,8 +81,8 @@ Provide exactly:
 3. TOP 3 GAPS
 4. ONE SENTENCE SUMMARY of what the hiring manager will think""")
 
-        with st.spinner("Running ATS check..."):
-            ats = ask(f"""You are an ATS system. Analyse this CV against this job description.
+            with st.spinner("Running ATS check..."):
+                ats = ask(f"""You are an ATS system. Analyse this CV against this job description.
 
 CV: {cv_text}
 
@@ -54,26 +90,24 @@ Job Description: {jd_text}
 
 Provide:
 1. ATS SCORE (0-100)
-2. CRITICAL KEYWORDS MISSING — list every important keyword from the JD missing in the CV
-3. KEYWORDS PRESENT — list matching keywords
-4. FORMAT ISSUES — any CV formatting that would hurt ATS parsing
+2. CRITICAL KEYWORDS MISSING
+3. KEYWORDS PRESENT
+4. FORMAT ISSUES
 5. QUICK FIXES — 3 specific changes to improve ATS score immediately""")
 
-        with st.spinner("Rewriting CV summary..."):
-            rewrite = ask(f"""Rewrite this candidate's CV professional summary and 5 bullet points tailored specifically for this job.
+            with st.spinner("Rewriting CV..."):
+                rewrite = ask(f"""Rewrite this candidate's CV professional summary and 5 bullet points tailored for this job.
 
 CV: {cv_text}
 
 Job Description: {jd_text}
 
 Provide:
-1. REWRITTEN PROFESSIONAL SUMMARY (3 sentences, mirror JD language, include key metrics)
-2. 5 REWRITTEN BULLET POINTS (strong action verbs, numbers, mirror JD keywords)
+1. REWRITTEN PROFESSIONAL SUMMARY (3 sentences, mirror JD language, include metrics)
+2. 5 REWRITTEN BULLET POINTS (strong action verbs, numbers, mirror JD keywords)""")
 
-Be specific. Use exact language from the job description.""")
-
-        with st.spinner("Predicting interview questions..."):
-            questions = ask(f"""Based on this job description and CV, predict the 8 most likely interview questions.
+            with st.spinner("Predicting interview questions..."):
+                questions = ask(f"""Based on this job description and CV, predict the 8 most likely interview questions.
 
 CV: {cv_text}
 
@@ -81,13 +115,11 @@ Job Description: {jd_text}
 
 For each question provide:
 - The question
-- Why they will ask it (one line)
-- A strong answer framework (2-3 sentences using the candidate's actual experience)
+- Why they will ask it
+- Strong answer framework using the candidate's actual experience""")
 
-Focus on questions that probe the gaps between the CV and JD.""")
-
-        with st.spinner("Writing cold email..."):
-            email = ask(f"""Write a cold email from this candidate to the hiring manager for this role.
+            with st.spinner("Writing cold email..."):
+                email = ask(f"""Write a cold email from this candidate to the hiring manager.
 
 CV: {cv_text}
 
@@ -96,37 +128,162 @@ Job Description: {jd_text}
 Rules:
 - Subject line that gets opened
 - 4 sentences maximum
-- First sentence: specific hook about the company/role
-- Second sentence: single strongest qualification with a number
-- Third sentence: one concrete thing they built or achieved
-- Fourth sentence: clear call to action
-- No generic phrases
-- Sound human not corporate""", 
+- Specific hook about the company
+- Strongest qualification with a number
+- One concrete achievement
+- Clear call to action
+- No generic phrases""",
 system="You are an expert at writing cold emails that get responses. Be punchy and specific.")
 
-        # Display results in tabs
-        tab1, tab2, tab3, tab4, tab5 = st.tabs([
-            "📊 Match Analysis", 
-            "🤖 ATS Score", 
+            with st.spinner("Writing cover letter..."):
+                cover_letter = ask(f"""Write a professional cover letter for this candidate.
+
+CV: {cv_text}
+
+Job Description: {jd_text}
+
+Rules:
+- 3 short paragraphs maximum
+- First paragraph: specific hook, why this company and role
+- Second paragraph: 2 most relevant achievements with numbers
+- Third paragraph: what you bring + clear call to action
+- Professional but human tone
+- No generic phrases like 'I am writing to apply'
+- Address to Hiring Manager if no name available""",
+system="You are an expert cover letter writer. Be specific, confident and human.")
+
+            # Store results in session state
+            st.session_state.results = {
+                'analysis': analysis,
+                'ats': ats,
+                'rewrite': rewrite,
+                'questions': questions,
+                'email': email,
+                'cover_letter': cover_letter,
+                'company': company_name,
+                'title': job_title,
+                'url': job_url,
+                'cv': cv_text,
+                'jd': jd_text
+            }
+
+    if 'results' in st.session_state:
+        r = st.session_state.results
+
+        t1, t2, t3, t4, t5, t6 = st.tabs([
+            "📊 Match Analysis",
+            "🤖 ATS Score",
             "✏️ Rewritten CV",
             "❓ Interview Prep",
-            "📧 Cold Email"
+            "📧 Cold Email",
+            "📝 Cover Letter"
         ])
 
-        with tab1:
-            st.markdown(analysis)
+        with t1:
+            st.markdown(r['analysis'])
+        with t2:
+            st.markdown(r['ats'])
+        with t3:
+            st.markdown(r['rewrite'])
+            st.info("Copy these into your CV before applying.")
+        with t4:
+            st.markdown(r['questions'])
+        with t5:
+            st.markdown(r['email'])
+        with t6:
+            st.markdown(r['cover_letter'])
 
-        with tab2:
-            st.markdown(ats)
+        st.divider()
+        st.subheader("💾 Save to Tracker")
+        col1, col2 = st.columns(2)
+        with col1:
+            status = st.selectbox("Status", ["Applied", "To Apply", "Interview", "Rejected", "Offer"])
+        with col2:
+            notes = st.text_input("Notes", placeholder="e.g. Applied via LinkedIn, emailed HR")
 
-        with tab3:
-            st.markdown(rewrite)
-            st.info("Copy these into your CV before applying. Mirror the exact language of the job description.")
+        if st.button("✅ Save Application", type="primary"):
+            # Extract match score
+            try:
+                score_line = [l for l in r['analysis'].split('\n') if 'MATCH SCORE' in l or 'match score' in l.lower()]
+                score = score_line[0] if score_line else "N/A"
+            except:
+                score = "N/A"
 
-        with tab4:
-            st.markdown(questions)
-            st.info("Prepare answers to these before every interview.")
+            app = {
+                'date': datetime.datetime.now().strftime('%Y-%m-%d'),
+                'company': r['company'] or 'Unknown',
+                'title': r['title'] or 'Unknown',
+                'url': r['url'] or '',
+                'status': status,
+                'match_score': score,
+                'notes': notes,
+                'cold_email': r['email'],
+                'cover_letter': r['cover_letter'],
+                'rewritten_cv': r['rewrite']
+            }
+            save_application(app)
+            st.success(f"✅ Saved! {r['company']} — {r['title']} added to your tracker.")
 
-        with tab5:
-            st.markdown(email)
-            st.info("Find the hiring manager on LinkedIn and send this directly. Don't wait for the application process.")
+with tab_tracker:
+    st.title("📋 Application Tracker")
+    st.caption("All your applications in one place.")
+
+    apps = load_applications()
+
+    if not apps:
+        st.info("No applications saved yet. Generate your first application package and save it.")
+    else:
+        # Summary metrics
+        total = len(apps)
+        interviews = len([a for a in apps if a['status'] == 'Interview'])
+        offers = len([a for a in apps if a['status'] == 'Offer'])
+        response_rate = round((interviews + offers) / total * 100, 1) if total > 0 else 0
+
+        k1, k2, k3, k4 = st.columns(4)
+        k1.metric("Total Applications", total)
+        k2.metric("Interviews", interviews)
+        k3.metric("Offers", offers)
+        k4.metric("Response Rate", f"{response_rate}%")
+
+        st.divider()
+
+        # Filter by status
+        status_filter = st.selectbox("Filter by status", ["All", "Applied", "To Apply", "Interview", "Rejected", "Offer"])
+
+        filtered_apps = apps if status_filter == "All" else [a for a in apps if a['status'] == status_filter]
+
+        for i, app in enumerate(reversed(filtered_apps)):
+            idx = len(apps) - 1 - i
+            with st.expander(f"**{app['company']}** — {app['title']} | {app['status']} | {app['date']}"):
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.markdown(f"**Company:** {app['company']}")
+                    st.markdown(f"**Role:** {app['title']}")
+                    st.markdown(f"**Date:** {app['date']}")
+                with col2:
+                    st.markdown(f"**Status:** {app['status']}")
+                    st.markdown(f"**Match Score:** {app.get('match_score', 'N/A')}")
+                    if app.get('url'):
+                        st.markdown(f"**Job URL:** [Link]({app['url']})")
+                with col3:
+                    st.markdown(f"**Notes:** {app.get('notes', '-')}")
+
+                # Update status
+                new_status = st.selectbox(
+                    "Update status",
+                    ["Applied", "To Apply", "Interview", "Rejected", "Offer"],
+                    index=["Applied", "To Apply", "Interview", "Rejected", "Offer"].index(app['status']),
+                    key=f"status_{idx}"
+                )
+                if new_status != app['status']:
+                    update_application(idx, {'status': new_status})
+                    st.rerun()
+
+                # Show materials
+                mat1, mat2, mat3 = st.tabs(["📧 Cold Email", "📝 Cover Letter", "✏️ Rewritten CV"])
+                with mat1:
+                    st.markdown(app.get('cold_email', 'Not saved'))
+                with mat2:
+                    st.markdown(app.get('cover_letter', 'Not saved'))
+                with mat3:
+                    st.markdown(app.get('rewritten_cv', 'Not saved'))
