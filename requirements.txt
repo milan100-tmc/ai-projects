@@ -1,11 +1,2 @@
-langchain-community
-langchain-text-splitters
 groq
 streamlit
-python-dotenv
-pypdf
-faiss-cpu
-scikit-learn
-openai
-plotly
-pandas
