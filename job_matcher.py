@@ -136,21 +136,38 @@ Rules:
 system="You are an expert at writing cold emails that get responses. Be punchy and specific.")
 
             with st.spinner("Writing cover letter..."):
-                cover_letter = ask(f"""Write a professional cover letter for this candidate.
+                cover_letter = ask(f"""Write a outstanding cover letter for this candidate for this specific role.
 
 CV: {cv_text}
 
 Job Description: {jd_text}
 
+Candidate background to weave in:
+- MSc Business Intelligence from Clermont School of Business
+- Data Analyst Intern at OQEMA Group (chemicals supply chain) — improved reporting efficiency 30%, increased dashboard adoption 30%, reduced support queries 25%
+- Data Researcher at Happy City Hub — 182 indicators, 50+ sources, 100% audit trail
+- Microsoft Fabric Analytics Engineer certified
+- Recently built and deployed 4 live AI tools: RAG chatbot, Meeting Prep AI, Sales Intelligence Dashboard, Supply Chain Analytics Dashboard
+- Understands business problems first, builds technical solutions second
+- Strong stakeholder communication — ran tutorials for non-technical users at OQEMA
+
+Cover letter structure:
+1. HEADER: Candidate full name, email, phone, LinkedIn, GitHub, date — formatted professionally
+2. SALUTATION: Use hiring manager name if mentioned in JD, otherwise "Dear Hiring Manager" — never generic
+3. OPENING PARAGRAPH: One powerful sentence about why THIS company specifically. Show you researched them. Then immediately state you are applying for the role.
+4. SECOND PARAGRAPH: Business understanding first. Explain you understand the business problem this role solves. Reference OQEMA experience and what you learned about stakeholder adoption and business intelligence in real companies.
+5. THIRD PARAGRAPH: Technical proof. Mention your recent AI projects and data engineering work as evidence you go beyond standard analyst skills. Include specific numbers from your experience.
+6. FOURTH PARAGRAPH: Why you are the top candidate. Connect your unique combination of business understanding + technical skills + real deployment experience to their specific needs.
+7. CLOSING: Professional closing with clear call to action. Sign off with full name.
+
 Rules:
-- 3 short paragraphs maximum
-- First paragraph: specific hook, why this company and role
-- Second paragraph: 2 most relevant achievements with numbers
-- Third paragraph: what you bring + clear call to action
-- Professional but human tone
-- No generic phrases like 'I am writing to apply'
-- Address to Hiring Manager if no name available""",
-system="You are an expert cover letter writer. Be specific, confident and human.")
+- Address the company by name multiple times
+- Reference specific things from the job description
+- Never use phrases like I am writing to apply or I believe I would be a great fit
+- Sound confident not desperate
+- Maximum 400 words
+- Professional British English""",
+system="You are an elite cover letter writer who has helped candidates get hired at top companies. Write cover letters that make hiring managers stop and call immediately.")
 
             # Store results in session state
             st.session_state.results = {
