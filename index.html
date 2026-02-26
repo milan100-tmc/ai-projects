@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milan Niranjan — AI & Data Analyst</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: rgba(10,10,10,0.95);
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        nav .logo { font-weight: 700; font-size: 1.1rem; color: #00ff88; }
+        nav a { color: #aaa; text-decoration: none; margin-left: 2rem; font-size: 0.9rem; }
+        nav a:hover { color: #00ff88; }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 10% 4rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d1a0d 100%);
+        }
+
+        .hero-content { max-width: 700px; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0,255,136,0.1);
+            border: 1px solid rgba(0,255,136,0.3);
+            color: #00ff88;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 span { color: #00ff88; }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary { background: #00ff88; color: #000; }
+        .btn-primary:hover { background: #00cc6a; transform: translateY(-2px); }
+        .btn-outline { border: 1px solid #333; color: #f0f0f0; }
+        .btn-outline:hover { border-color: #00ff88; color: #00ff88; transform: translateY(-2px); }
+
+        .stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid #222;
+        }
+
+        .stat-number { font-size: 2rem; font-weight: 800; color: #00ff88; }
+        .stat-label { font-size: 0.85rem; color: #666; }
+
+        section { padding: 6rem 10%; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-4px);
+        }
+
+        .project-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .project-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .project-card p { color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .tag {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 0.2rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: #aaa;
+        }
+
+        .project-link {
+            color: #00ff88;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .project-link:hover { text-decoration: underline; }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .skill-item span { color: #00ff88; margin-right: 0.5rem; }
+
+        .contact {
+            background: #0d1a0d;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        .contact h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .contact p { color: #888; margin-bottom: 2rem; }
+
+        footer {
+            padding: 2rem 10%;
+            border-top: 1px solid #111;
+            text-align: center;
+            color: #444;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Milan Niranjan</div>
+    <div>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/milan100-tmc/ai-projects" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">🟢 Open to opportunities</div>
+        <h1>Data Analyst &<br><span>AI Developer</span></h1>
+        <p>I build intelligent tools that turn business data into decisions. MSc Business Intelligence. Based in Europe.</p>
+        <a href="#projects" class="btn btn-primary">View Live Projects</a>
+        <a href="https://github.com/milan100-tmc/ai-projects" class="btn btn-outline" target="_blank">GitHub</a>
+        <div class="stats">
+            <div>
+                <div class="stat-number">3</div>
+                <div class="stat-label">Live AI Apps</div>
+            </div>
+            <div>
+                <div class="stat-number">8</div>
+                <div class="stat-label">Days Building</div>
+            </div>
+            <div>
+                <div class="stat-number">MSc</div>
+                <div class="stat-label">Business Intelligence</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="section-title">Live Projects</div>
+    <div class="section-subtitle">Built and deployed in 8 days. All available to use right now.</div>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-icon">📊</div>
+            <h3>Sales Intelligence Dashboard</h3>
+            <p>Interactive dashboard with AI analyst that automatically identifies patterns, risks and opportunities in sales data.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Plotly</span>
+                <span class="tag">Groq API</span>
+                <span class="tag">Streamlit</span>
+            </div>
+            <a href="https://ai-projects-gfptpxkbcfhkrr2fanhumb.streamlit.app/" class="project-link" target="_blank">View Live App →</a>
+        </div>
+        <div class="project-card">
+            <div class="project-icon">🧠</div>
+            <h3>Meeting Prep AI</h3>
+            <p>Upload a business report, get a pre-meeting brief in 60 seconds. Auto-generates key takeaways and smart questions.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">RAG</span>
+                <span class="tag">FAISS</span>
+                <span class="tag">Streamlit</span>
+            </div>
+            <a href="https://ai-projects-qclkoalxt32xuocantvf9n.streamlit.app/" class="project-link" target="_blank">View Live App →</a>
+        </div>
+        <div class="project-card">
+            <div class="project-icon">🤖</div>
+            <h3>RAG Document Chatbot</h3>
+            <p>Ask questions about any business document in plain English. Built with vector search for accurate retrieval.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">LangChain</span>
+                <span class="tag">FAISS</span>
+                <span class="tag">Streamlit</span>
+            </div>
+            <a href="https://ai-projects-qclkoalxt32xuocantvf9n.streamlit.app/" class="project-link" target="_blank">View Live App →</a>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="section-title">Technical Skills</div>
+    <div class="section-subtitle">What I build with.</div>
+    <div class="skills-grid">
+        <div class="skill-item"><span>▸</span>Python</div>
+        <div class="skill-item"><span>▸</span>SQL</div>
+        <div class="skill-item"><span>▸</span>Power BI</div>
+        <div class="skill-item"><span>▸</span>Groq API / LLMs</div>
+        <div class="skill-item"><span>▸</span>LangChain</div>
+        <div class="skill-item"><span>▸</span>FAISS Vector Search</div>
+        <div class="skill-item"><span>▸</span>Streamlit</div>
+        <div class="skill-item"><span>▸</span>Pandas / Plotly</div>
+        <div class="skill-item"><span>▸</span>RAG Architecture</div>
+        <div class="skill-item"><span>▸</span>Git / GitHub</div>
+        <div class="skill-item"><span>▸</span>Azure Databricks</div>
+        <div class="skill-item"><span>▸</span>Business Intelligence</div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Let's work together</h2>
+    <p>Open to Data Analyst, BI Analyst and AI Developer roles across Europe.</p>
+    <a href="https://www.linkedin.com/in/milan-niranjan" class="btn btn-primary" target="_blank">Connect on LinkedIn</a>
+    <a href="https://github.com/milan100-tmc/ai-projects" class="btn btn-outline" target="_blank">View GitHub</a>
+</section>
+
+<footer>
+    <p>Built by Milan Niranjan — Data Analyst & AI Developer — 2026</p>
+</footer>
+
+</body>
+</html>
