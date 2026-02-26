@@ -1,2 +1,12 @@
 groq
 streamlit
+python-dotenv
+langchain
+langchain-community
+faiss-cpu
+pypdf
+sentence-transformers
+plotly
+pandas
+numpy
+scikit-learn
