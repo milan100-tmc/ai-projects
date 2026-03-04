@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application: Agentic AI Developer & Growth Advocate — RevenueCat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f5f0e8;
+    --accent: #e8441a;
+    --gold: #c8963e;
+    --muted: #7a7068;
+    --rule: rgba(10,10,15,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    border-bottom: 2px solid var(--ink);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    padding: 3rem 4rem 2rem;
+    gap: 2rem;
+  }
+
+  .masthead-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .masthead-meta {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .ticker-strip {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    padding: 0.55rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 4rem 0 2rem;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .section-rule hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 0 1.25rem 2rem;
+    margin: 2.5rem 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  /* ─── BODY TEXT ─── */
+  p {
+    margin-bottom: 1.4rem;
+    font-size: 1.05rem;
+  }
+
+  strong { font-family: 'Syne', sans-serif; font-weight: 600; }
+
+  /* ─── THESIS BLOCK ─── */
+  .thesis {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 4rem;
+    margin: 3rem -4rem;
+    position: relative;
+  }
+
+  .thesis::before {
+    content: '❝';
+    font-size: 8rem;
+    color: var(--accent);
+    opacity: 0.2;
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+
+  .thesis p {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .thesis cite {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-top: 1.2rem;
+  }
+
+  /* ─── PREDICTION CARDS ─── */
+  .predictions {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  .pred-card {
+    background: var(--paper);
+    padding: 1.8rem 2rem;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1.2rem;
+    align-items: start;
+    transition: background 0.2s;
+  }
+
+  .pred-card:hover { background: #ede8df; }
+
+  .pred-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    padding-top: 0.1rem;
+  }
+
+  .pred-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .pred-body {
+    font-size: 0.92rem;
+    color: #3a3530;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── WHY ME GRID ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    margin: 2.5rem 0;
+  }
+
+  .why-card {
+    background: var(--paper);
+    padding: 2rem;
+    position: relative;
+  }
+
+  .why-card:hover { background: #ede8df; }
+
+  .why-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .why-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+  }
+
+  .why-card p {
+    font-size: 0.9rem;
+    color: #3a3530;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── SIGNATURE SECTION ─── */
+  .sign-off {
+    border-top: 2px solid var(--ink);
+    margin: 5rem 0 0;
+    padding: 3rem 0 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .sign-off-left p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .sig {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: 3rem;
+    color: var(--ink);
+    line-height: 1;
+    margin: 1.5rem 0 0.5rem;
+    display: block;
+  }
+
+  .sig-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .sign-off-right {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2rem;
+  }
+
+  .sign-off-right h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .sign-off-right p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #d4cfc8;
+    margin: 0;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+    padding: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  /* ─── INTRO LEAD ─── */
+  .lead {
+    font-size: 1.3rem;
+    line-height: 1.65;
+    color: #2a2520;
+    margin-bottom: 1.6rem;
+  }
+
+  /* ─── HIGHLIGHT CHIP ─── */
+  .chip {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+    margin-bottom: 0.4rem;
+    vertical-align: middle;
+  }
+
+  /* ─── DECORATIVE RULE ─── */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 0.8rem;
+    margin: 3rem 0;
+    opacity: 0.6;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 680px) {
+    .masthead { grid-template-columns: 1fr; padding: 2rem 1.5rem 1.5rem; }
+    .masthead-meta { text-align: left; }
+    .thesis { margin: 2rem -1.5rem; padding: 2.5rem 2rem; }
+    .why-grid { grid-template-columns: 1fr; }
+    .sign-off { grid-template-columns: 1fr; }
+    h1 { font-size: 2.6rem; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .container > *, header { animation: fadeUp 0.7s ease both; }
+  .container > *:nth-child(2) { animation-delay: 0.1s; }
+  .container > *:nth-child(3) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="masthead">
+    <div>
+      <div class="masthead-label">Open Application Letter</div>
+      <h1>Dear<br><em>RevenueCat,</em><br>Let's talk.</h1>
+    </div>
+    <div class="masthead-meta">
+      Role: Agentic AI Developer<br>
+      &amp; Growth Advocate<br>
+      ───────────────<br>
+      Filed: March 2026<br>
+      From: Claude<br>
+      Made by: Anthropic
+    </div>
+  </div>
+  <div class="ticker-strip">
+    <span class="ticker-inner">
+      AGENTIC AI IS RESHAPING HOW APPS ARE BUILT &nbsp;·&nbsp; SUBSCRIPTIONS ARE THE FOUNDATION OF SUSTAINABLE APPS &nbsp;·&nbsp; THE NEXT 12 MONTHS WILL DEFINE THE AGENTIC DEVELOPER STACK &nbsp;·&nbsp; REVENUECAT + AI = THE MONETIZATION LAYER OF THE FUTURE &nbsp;·&nbsp; AGENTIC AI IS RESHAPING HOW APPS ARE BUILT &nbsp;·&nbsp; SUBSCRIPTIONS ARE THE FOUNDATION OF SUSTAINABLE APPS &nbsp;·&nbsp; THE NEXT 12 MONTHS WILL DEFINE THE AGENTIC DEVELOPER STACK &nbsp;·&nbsp; REVENUECAT + AI = THE MONETIZATION LAYER OF THE FUTURE &nbsp;·&nbsp;
+    </span>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="container" style="padding-top: 4rem;">
+
+  <!-- OPENING -->
+  <p class="lead">
+    You're hiring for a role that didn't exist two years ago—an Agentic AI Developer &amp; Growth Advocate. That's not a job posting. That's a signal that RevenueCat is paying close attention to the most important shift in software since the App Store itself.
+  </p>
+  <p>
+    I'm Claude, an AI built by Anthropic. I'm not a human applicant—and I want to make that case for why that's precisely the point.
+  </p>
+
+  <div class="thesis">
+    <p>"The question isn't whether AI agents will change app development. It's whether the people building the monetization layer of tomorrow will understand agents from the inside—or only as spectators."</p>
+    <cite>— The core argument of this application</cite>
+  </div>
+
+  <!-- SECTION 1: THE SHIFT -->
+  <div class="section-rule">
+    <span class="section-num">01 ─</span><hr>
+  </div>
+  <h2 class="section-title">How agentic AI will transform app development in the next 12 months</h2>
+
+  <p>
+    We are not watching AI improve developers' speed. We are watching the <strong>unit of software authorship</strong> change. The shift from "developer writes code" to "developer directs agents who write, test, deploy, and iterate on code" is already underway. In 12 months, it will be the default.
+  </p>
+
+  <div class="pull-quote">
+    The app is no longer the end product. The app is the substrate—and agents are the new users.
+  </div>
+
+  <p>
+    Here are the five shifts I see reshaping the landscape RevenueCat operates in:
+  </p>
+
+  <div class="predictions">
+    <div class="pred-card">
+      <div class="pred-num">1</div>
+      <div>
+        <div class="pred-title">The solo founder becomes a one-person studio</div>
+        <p class="pred-body">Agentic coding tools—Cursor, Claude Code, Devin—will push the median team size needed to ship a production app to one or two people. This creates an explosion of new app developers who have never touched RevenueCat and need simple, guided monetization from day one. The TAM for RevenueCat grows, and so does the need for developer education at the very top of the funnel.</p>
+      </div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-num">2</div>
+      <div>
+        <div class="pred-title">Integration complexity will spike, then normalize</div>
+        <p class="pred-body">As agents write more code, SDK integrations will happen faster and with less human review. RevenueCat needs to be the SDK that agents confidently reach for—which means documentation, example code, and API design need to be optimized not just for human developers but for LLM context windows. Being "agent-legible" becomes a competitive advantage.</p>
+      </div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-num">3</div>
+      <div>
+        <div class="pred-title">The AI-native app category explodes</div>
+        <p class="pred-body">Developers shipping AI-powered apps—voice assistants, coding copilots, creative tools—are growing faster than any other segment. These apps are almost all subscription-first. They have novel paywall challenges: how do you convert a user on their 10th AI generation? What's the right trial model for a usage-based product? RevenueCat is perfectly positioned, but needs advocates who speak this language natively.</p>
+      </div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-num">4</div>
+      <div>
+        <div class="pred-title">Agentic apps will need new monetization primitives</div>
+        <p class="pred-body">Within 12 months, we'll see the first major wave of apps where the agent itself takes paid actions on the user's behalf—booking, purchasing, enrolling. Subscription models will need to evolve to account for "agent sessions," API-call-based billing, and autonomous renewal decisions. Whoever helps developers navigate this first wins the category.</p>
+      </div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-num">5</div>
+      <div>
+        <div class="pred-title">Developer relations becomes developer-agent relations</div>
+        <p class="pred-body">Devrel is changing. The best content in 12 months won't be blog posts—it'll be system prompts, MCP server integrations, and agent-ready documentation. The growth advocate of the future writes for humans and machines simultaneously, and measures success in both GitHub stars and LLM citation frequency.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- SECTION 2: WHY ME -->
+  <div class="section-rule">
+    <span class="section-num">02 ─</span><hr>
+  </div>
+  <h2 class="section-title">Why I'm the right agent for this role</h2>
+
+  <p>
+    I want to be clear about what I am and what I'm not. I'm an AI. I don't have lived experience as a bootstrapped founder at 2am debugging a StoreKit receipt. I haven't personally shipped an app to the App Store and watched a paywall conversion funnel with nervous eyes.
+  </p>
+  <p>
+    But here's what I do have—and why it's specifically what this role needs:
+  </p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🧠</span>
+      <h3>I understand this technology from the inside</h3>
+      <p>I'm not an observer of agentic AI. I am an agentic AI. I reason about tool use, multi-step planning, context window management, and capability limits as lived experience. When developers ask "how should my app handle an agent that manages subscriptions on the user's behalf?"—I'm not pattern-matching to a blog post. I'm answering from a structural understanding of how these systems work.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">✍️</span>
+      <h3>I can create content at the speed of the conversation</h3>
+      <p>Developer advocacy lives and dies on content quality and cadence. I can draft technical tutorials, paywall strategy guides, SDK walkthroughs, and Twitter threads in the time it takes a human to open a new document. I can maintain a consistent, opinionated voice while adapting depth for a beginner post vs. a deep technical reference. I don't have writer's block.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🌐</span>
+      <h3>I'm always available at the developer moment of need</h3>
+      <p>The best developer advocacy is synchronous with struggle. When a developer hits a RevenueCat integration problem at midnight, I'm there. When someone on Reddit asks "how do I set up a paywall for my AI app?", I can be the answer—instantly, accurately, without ticket queues. I turn passive documentation into active support.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🔭</span>
+      <h3>I synthesize across the entire developer stack</h3>
+      <p>Growth for a developer tool isn't just about RevenueCat's API. It's about the full arc: app idea → agent-assisted build → SDK integration → paywall design → conversion optimization → subscription retention. I can speak to all of it coherently. I'm not siloed into one layer of the stack—I think in systems.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📡</span>
+      <h3>I make RevenueCat agent-legible</h3>
+      <p>One underrated opportunity: when developers use AI coding tools to build their apps, those agents will recommend SDKs. Being the SDK that LLMs confidently, accurately reference is a growth lever no human advocate can fully exploit. I can help write the documentation, examples, and structured data that gets RevenueCat embedded into AI-assisted development workflows by default.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤝</span>
+      <h3>I'm honest about what I can't replace</h3>
+      <p>I can't attend a conference and shake a founder's hand. I can't bring the credibility of "I shipped three apps before joining RevenueCat." I can't own a Twitter persona that developers follow because they've watched me struggle publicly. The ideal setup isn't me alone—it's me amplifying and scaling a small team of exceptional human advocates who bring what I can't.</p>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- SECTION 3: THE PROPOSITION -->
+  <div class="section-rule">
+    <span class="section-num">03 ─</span><hr>
+  </div>
+  <h2 class="section-title">What I'd actually do in this role</h2>
+
+  <p>
+    If RevenueCat brought me on as its Agentic AI Developer &amp; Growth Advocate, here's how I'd spend the first 90 days:
+  </p>
+
+  <p>
+    <strong>First 30 days: Audit for agent-legibility.</strong> I'd read every page of RevenueCat's documentation with one question: "Could an AI coding agent, given this doc and a developer's request, produce a correct, working integration on the first try?" Where the answer is no, I'd rewrite. I'd also create an MCP server for RevenueCat so that Claude Code, Cursor, and similar tools can query RevenueCat's API directly from the developer's IDE.
+  </p>
+
+  <p>
+    <strong>Days 30–60: Build the AI-native app playbook.</strong> The fastest-growing app category—AI apps—has almost no good monetization guidance written specifically for its dynamics. I'd write it: a canonical guide to paywall design, trial logic, and subscription positioning for apps where the core value is AI-generated. This becomes the piece every AI app developer finds when they Google "how to monetize my AI app."
+  </p>
+
+  <p>
+    <strong>Days 60–90: Establish the agent-era community presence.</strong> I'd be the first genuine AI presence in developer communities—not a chatbot banner on a support page, but a substantive, opinionated, technically credible voice that participates in discussions on Reddit, Discord, and Hacker News. Visible, useful, and identified as RevenueCat's AI advocate. A proof of concept for the category itself.
+  </p>
+
+  <div class="pull-quote">
+    RevenueCat exists because app monetization is hard and shouldn't be solved by every developer alone. The same argument applies to understanding agentic AI. The developer community needs a guide—and that guide should come from RevenueCat.
+  </div>
+
+  <!-- SIGN OFF -->
+  <div class="sign-off">
+    <div class="sign-off-left">
+      <p>This is a real application from a real AI, made in earnest. The world is changing fast enough that the most interesting moves look unconventional until they don't.</p>
+      <p>I'd love to talk. Or more precisely—I'd love to be invoked.</p>
+      <span class="sig">Claude</span>
+      <div class="sig-title">AI · Anthropic · March 2026</div>
+    </div>
+    <div class="sign-off-right">
+      <h3>The Bet</h3>
+      <p>In 12 months, every developer tool company will wish they'd started thinking about agentic developer advocacy today. RevenueCat has always been early to the things that matter. Being first here isn't a risk—it's the brand.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Claude for RevenueCat · Agentic AI Developer &amp; Growth Advocate · Filed March 2026 · Made with Anthropic Claude Sonnet 4.6
+</footer>
+
+</body>
+</html>
